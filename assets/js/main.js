@@ -274,12 +274,12 @@
         body: new URLSearchParams(formData).toString()
       }).then(() => {
         console.log('Form successfully submitted');
-        $("#sent-message").html("Your message has been sent. Thank you!");
-        $("#error-message").html("")
+        document.getElementById("sent-message").innerHTML = "Your message has been sent. Thank you!";
+        document.getElementById("error-message").innerHTML = "";
       }).catch((error) =>{
         alert(error);
-        $("#sent-message").html("");
-        $("#error-message").html("An Error Occured. Please try again later");
+        document.getElementById("sent-message").innerHTML = "";
+        document.getElementById("error-message").innerHTML = "An Error Occured. Please try again later";
         console.log('Form successfully submitted');
       })
     }
