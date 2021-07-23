@@ -262,7 +262,7 @@
 
     setInterval(doDate, 1000);
 
-    document.querySelector("form").addEventListener("submit", handleSubmit);
+
 
     const handleSubmit = (e) => {
       e.preventDefault()
@@ -283,5 +283,5 @@
         console.log('Form successfully submitted');
       })
     }
-
+    document.querySelector("form").addEventListener("submit", handleSubmit);
 })()
