@@ -262,4 +262,26 @@
 
     setInterval(doDate, 1000);
 
+    document.querySelector("form").addEventListener("submit", handleSubmit);
+
+    const handleSubmit = (e) => {
+      e.preventDefault()
+      let myForm = document.getElementById('contactForm');
+      let formData = new FormData(myForm)
+      fetch('/', {
+        method: 'POST',
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString()
+      }).then(() => {
+        console.log('Form successfully submitted');
+        $("#sent-message").html("Your message has been sent. Thank you!");
+        $("#error-message").html("")
+      }).catch((error) =>{
+        alert(error);
+        $("#sent-message").html("");
+        $("#error-message").html("An Error Occured. Please try again later");
+        console.log('Form successfully submitted');
+      })
+    }
+
 })()
