@@ -273,17 +273,16 @@
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(formData).toString()
       }).then(() => {
-        console.log('Form successfully submitted');
+        document.getElementById("error-message").classList.remove('d-block');
+        document.getElementById("sent-message").classList.add('d-block');
         document.getElementById("sent-message").innerHTML = "Your message has been sent. Thank you!";
-        document.getElementById("error-message").innerHTML = "";
       }).catch((error) =>{
-        alert(error);
-        document.getElementById("sent-message").innerHTML = "";
+        document.getElementById("sent-message").classList.remove('d-block');
+        document.getElementById("error-message").classList.add('d-block');
         document.getElementById("error-message").innerHTML = "An Error Occured. Please try again later";
-        console.log('Form successfully submitted');
       })
     }
 
     document.querySelector("form").addEventListener("submit", handleSubmit);
-    
+
 })()
