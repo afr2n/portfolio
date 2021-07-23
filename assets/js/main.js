@@ -271,7 +271,7 @@
       let formData = new FormData(myForm)
       fetch('/', {
         method: 'POST',
-        headers: { "Content-Type": "multipart/form-data" },
+        // headers: { "Content-Type": "multipart/form-data" },
         body: new URLSearchParams(formData).toString()
       }).then(() => {
         document.getElementById("loading").classList.remove('d-block');
