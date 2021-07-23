@@ -266,6 +266,7 @@
 
     const handleSubmit = (e) => {
       e.preventDefault()
+      document.getElementById("loading").classList.add('d-block');
       let myForm = document.getElementById('contactForm');
       let formData = new FormData(myForm)
       fetch('/', {
@@ -273,10 +274,12 @@
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(formData).toString()
       }).then(() => {
+        document.getElementById("loading").classList.remove('d-block');
         document.getElementById("error-message").classList.remove('d-block');
         document.getElementById("sent-message").classList.add('d-block');
         document.getElementById("sent-message").innerHTML = "Your message has been sent. Thank you!";
       }).catch((error) =>{
+        document.getElementById("loading").classList.remove('d-block');
         document.getElementById("sent-message").classList.remove('d-block');
         document.getElementById("error-message").classList.add('d-block');
         document.getElementById("error-message").innerHTML = "An Error Occured. Please try again later";
